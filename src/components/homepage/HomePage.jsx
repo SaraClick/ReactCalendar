@@ -3,6 +3,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import calendarIcon from "../../assets/calendar-icon.png";
 import filesIcon from "../../assets/files-icon.png";
 import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
 
 function HomePage() {
   return (

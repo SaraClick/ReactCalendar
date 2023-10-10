@@ -6,6 +6,7 @@ import Holidays from "./components/holidays/Holidays";
 import CalendarPicker from "./components/calendar/Calendar";
 import HomePage from "./components/homepage/HomePage";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   const [holidays, setHolidays] = useState({ division: "", events: [] });
@@ -13,7 +14,7 @@ function App() {
   return (
     <>
       <Router>
-          <Header className="header"/>
+          <Header/>
           <div className="main-content">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -23,7 +24,7 @@ function App() {
           </div>
           <Footer className="footer"/>
       </Router>
-      
+
     </>
   );
 }
