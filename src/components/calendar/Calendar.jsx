@@ -16,7 +16,7 @@ function CalendarPicker() {
           <Calendar onChange={setDate} value={date} />
         </Row>
         <Row>
-          <div className="text-center">
+          <div className="text-center pagetitle">
             Selected date: {date.toDateString()}
           </div>
         </Row>

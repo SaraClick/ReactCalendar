@@ -30,7 +30,9 @@ footer p {
   height: 3em;
 }
 
-
+.pagetitle{
+  color: beige;
+}
 
 .content-wrap {
     /* Footer height */
@@ -72,4 +74,12 @@ footer p {
   padding: 0.2em;
   height: 20em;
   width: 15em;
+}
+
+div.card {
+  background-color: rgb(207, 209, 201);
+}
+
+.calendar-container{
+  padding-top: 5rem;
 }

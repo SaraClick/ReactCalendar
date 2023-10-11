@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 import { Container, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
+import dayjs from 'dayjs'
 
 const holidaysApiUrl = "https://www.gov.uk/bank-holidays.json";
 
 function Holidays({ holidays, setHolidays }) {
+
+  const todayDate = new Date();
+  console.log(todayDate)
+
   // fetch returns a promise due to the request not being an instant response.
   // promise will ensure that you can process the response upon receipt
   // Use effect will only call in once this event
@@ -28,12 +33,14 @@ function Holidays({ holidays, setHolidays }) {
   return (
     <>
     <Container className="container">
-      <h2>Holidays for: {holidays.division}</h2>
+      <h2 className="pagetitle">Holidays for: {holidays.division}</h2>
       <div className="holiday-events">
         {holidays.events.map((holiday, index) => {
+          if(dayjs(holiday.date).isAfter(dayjs())) {
+     
           return (
             <Cards key={index} title={holiday.title} date={holiday.date} />
-          );
+          );}
         })}
       </div>
       </Container>

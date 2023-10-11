@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Router>
-        <div id="page-container">
+        <div className="page-container">
           <Header/>
           <div className="content-wrap">
           <Routes>
