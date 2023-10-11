@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 function Footer() {
   return (
-    <p>&#169;Sara Bonnin Richaud</p>
+    <footer>&#169;Sara Bonnin Richaud</footer>
   )
 }
 

@@ -27,7 +27,7 @@ function Holidays({ holidays, setHolidays }) {
 
   return (
     <>
-    <Container>
+    <Container className="container-fluid">
       <h2>Holidays for: {holidays.division}</h2>
       <div className="holiday-events">
         {holidays.events.map((holiday, index) => {

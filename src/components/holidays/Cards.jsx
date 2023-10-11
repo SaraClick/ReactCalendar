@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 function Cards({title, date}) {
   return (
     <>
-    <Card className='card-holiday'>
+    <Card className='card mx-auto'>
     <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title class>{title}</Card.Title>
         <Card.Text>{date} </Card.Text>
         </Card.Body>
     </Card>

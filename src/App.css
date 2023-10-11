@@ -1,37 +1,35 @@
-
-#root {
+#root,
+html,
+body {
   height: 100%;
   width: 100%;
   background: rgb(66, 64, 64);
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-.card {
-  padding: 2em;
-}
+/* holiday cards */
 
-
-.layout{
+.layout {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
 }
-
 
 .holiday-events {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   background-color: darkgray;
+  align-items: center;
 }
 
 .card {
-  width: 20%;
-}
-
-.card-holiday{
   border: 1px solid;
   border-radius: 20px;
-  margin: 2rem;
+  margin: 1em;
+  padding: 0.5em;
+  height: 10em;
+  width: 15em;
 }
+
