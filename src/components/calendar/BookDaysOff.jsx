@@ -4,14 +4,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import CalendarPicker from "./CalendarPicker";
 import TrackingTable from "../trackingTable/TrackingTable";
 
-function BookDaysOff({ allowance, daysBooked }) {
+function BookDaysOff({ allowance, daysBooked, holidays }) {
   return (
     <Container>
       <Row>
         <TrackingTable allowance={allowance} daysBooked={daysBooked} />
       </Row>
       <Row>
-        <CalendarPicker />
+        <CalendarPicker holidays={holidays}/>
       </Row>
     </Container>
   );

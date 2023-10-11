@@ -31,7 +31,7 @@ function App() {
                   <Holidays holidays={holidays} setHolidays={setHolidays} />
                 }
               />
-              <Route path="/Calendar" element={<BookDaysOff allowance={allowance} daysBooked={daysBooked}/>} />
+              <Route path="/Calendar" element={<BookDaysOff allowance={allowance} daysBooked={daysBooked} holidays={holidays}/>} />
             </Routes>
           </div>
           <Footer />

@@ -4,10 +4,20 @@ import { useState, useEffect, useRef } from "react";
 import { Container, Row } from "react-bootstrap";
 import "../../App.css";
 
-function CalendarPicker() {
+function CalendarPicker({ holidays }) {
   const [date, setDate] = useState(new Date());
 
   const [daysPicked, setDaysPicked] = useState([]);
+
+  /**
+   @todo: 
+   - Add Bank Holidays to the calendar so we can visually identify them (same as weekend)
+   - Raise an alert if Bank Holiday is Selected
+   - Button to book the daysPicked on click
+      - booked days should show in a different color
+      - available and booked days to be adjusted upon booking (pass down setters)
+      - user should not be allowed to select booked days (add a use state for bookedDays?)
+  **/
 
   function dateClick(e) {
     setDate(e);
@@ -15,6 +25,7 @@ function CalendarPicker() {
       if (e.getDay() === 6 || e.getDay() === 0) {
         alert("Weekends cannot be booked as holiday");
       } else {
+        // ...daysPicked is creating a shallow copy of the array
         setDaysPicked([...daysPicked, e.toDateString()]);
       }
     } else {
@@ -24,7 +35,6 @@ function CalendarPicker() {
       );
       setDaysPicked(newDaysPicked);
     }
-    // ...daysPicked is creating a copy of the array (shallow)
   }
 
   // Function to customize the colour of calendar tiles

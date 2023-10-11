@@ -187,10 +187,9 @@ div.card {
   background-color: #f0f0f0;
 } */
 
-  /* .react-calendar__tile:enabled:hover,
-  .react-calendar__tile:enabled:focus {
-    background-color: #e6e6e6;
-  } */
+  .react-calendar__tile:enabled:hover{
+    background-color: #a9ae17;
+  }
 
 .react-calendar__tile--now {
   background: #cbcbc8;
