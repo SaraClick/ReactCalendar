@@ -8,17 +8,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 function HomePage() {
   return (
     <>
-      <Container className="homepage-container">
+      <Container className="homepage-container container-fluid">
         <Row>
           <Col>
             <Link to={`/Calendar`}>
               <img src={calendarIcon} alt="calendar icon" />
+              <p>Book time off</p>
             </Link>
           </Col>
           <Col>
             <Link to={`/Holidays`}>
       
               <img src={filesIcon} alt="files icon for absence booking" />
+              <p> Bank Holidays</p>
             </Link>
           </Col>
         </Row>
