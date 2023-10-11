@@ -183,17 +183,17 @@ div.card {
   line-height: 16px;
 }
 
-.react-calendar__tile:disabled {
+/* .react-calendar__tile:disabled {
   background-color: #f0f0f0;
-}
+} */
 
-.react-calendar__tile:enabled:hover,
-.react-calendar__tile:enabled:focus {
-  background-color: #e6e6e6;
-}
+  /* .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    background-color: #e6e6e6;
+  } */
 
 .react-calendar__tile--now {
-  background: #f2f2ee;
+  background: #cbcbc8;
   color: black;
 }
 
@@ -211,24 +211,25 @@ div.card {
   background: #a9d4ff;
 }
 
-.react-calendar__tile--active {
+/* .react-calendar__tile--active {
   background: #185693;
   color: rgb(234, 225, 225);
-}
+} */
 
-.react-calendar__tile--active:enabled:hover,
+/* .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
   background: #1087ff;
-}
+} */
 
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #372d2d;
 }
 
 .selected-date {
-  background: #9c0909;
+  background-color: #276f7f;
 }
 
+
 .list-booked{
-  background: #a9d4ff;
+  background: #276f7f;
 }

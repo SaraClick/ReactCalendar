@@ -2,42 +2,59 @@ import React from "react";
 import Calendar from "react-calendar";
 import { useState, useEffect, useRef } from "react";
 import { Container, Row } from "react-bootstrap";
-import '../../App.css'
-
+import "../../App.css";
 
 function CalendarPicker() {
   const [date, setDate] = useState(new Date());
 
   const [daysPicked, setDaysPicked] = useState([]);
 
-
-
   function dateClick(e) {
-    setDate(e)
-    console.log("e: ", e)
-    console.log("date: ", date)
-    console.log("daysPicked BEFORE: ", daysPicked)
-    if(!daysPicked.includes(e.toDateString())) {
-      setDaysPicked([...daysPicked,e.toDateString()])} else {
-        const newDaysPicked = daysPicked.filter(day => day !== e.toDateString());
-        setDaysPicked(newDaysPicked)
+    setDate(e);
+    if (!daysPicked.includes(e.toDateString())) {
+      if (e.getDay() === 6 || e.getDay() === 0) {
+        alert("Weekends cannot be booked as holiday");
+      } else {
+        setDaysPicked([...daysPicked, e.toDateString()]);
       }
-      // ...daysPicked is creating a copy of the array (shallow)
-    console.log("click action")
-    console.log("daysPicked AFTER: ",daysPicked)
+    } else {
+      // creates a new array removing the unselected item and sets the DayPicked to that new array
+      const newDaysPicked = daysPicked.filter(
+        (day) => day !== e.toDateString()
+      );
+      setDaysPicked(newDaysPicked);
+    }
+    // ...daysPicked is creating a copy of the array (shallow)
   }
 
+  // Function to customize the colour of calendar tiles
+  const tileClassName = ({ date, view }) => {
+    let result = "";
+    if (view === "month") {
+      const dateString = date.toDateString();
+      if (daysPicked.includes(dateString)) {
+        // class name to be returned
+        result += "selected-date";
+      }
+    }
 
-  // gets called on re-render 
+    return result;
+  };
 
-  console.log("render")
-  console.log(daysPicked)
+  // gets called on re-render
+
+  console.log("render");
+  console.log(daysPicked);
 
   return (
     <>
       <Container className="calendar-container">
         <Row>
-          <Calendar onChange={dateClick} value={date} />
+          <Calendar
+            onChange={dateClick}
+            value={date}
+            tileClassName={tileClassName}
+          />
         </Row>
         <Row>
           <div className="text-center pagetitle">
@@ -45,12 +62,10 @@ function CalendarPicker() {
           </div>
         </Row>
       </Container>
-        {/* Render the selected dates with the CSS class */}
-        <div className="list-booked">
+      {/* Render the selected dates with the CSS class */}
+      <div className="list-booked">
         {daysPicked.map((selectedDate, index) => (
-          <div key={index} >
-            {selectedDate}
-          </div>
+          <div key={index}>{selectedDate}</div>
         ))}
       </div>
     </>
