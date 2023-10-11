@@ -194,7 +194,7 @@ div.card {
 
 .react-calendar__tile--now {
   background: #f2f2ee;
-  color: rgb(75, 70, 70);
+  color: black;
 }
 
 .react-calendar__tile--now:enabled:hover,
@@ -223,4 +223,12 @@ div.card {
 
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #372d2d;
+}
+
+.selected-date {
+  background: #9c0909;
+}
+
+.list-booked{
+  background: #a9d4ff;
 }
