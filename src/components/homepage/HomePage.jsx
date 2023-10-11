@@ -3,12 +3,15 @@ import { Container, Col, Row } from "react-bootstrap";
 import calendarIcon from "../../assets/calendar-icon.png";
 import filesIcon from "../../assets/files-icon.png";
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
+import TrackingTable from "../trackingTable/TrackingTable";
 
-function HomePage() {
+function HomePage({ allowance, daysBooked }) {
   return (
     <>
       <Container className="homepage-container container-fluid">
+        <TrackingTable allowance={allowance} daysBooked={daysBooked} />
+
         <Row>
           <Col>
             <Link to={`/Calendar`}>
@@ -18,7 +21,6 @@ function HomePage() {
           </Col>
           <Col>
             <Link to={`/Holidays`}>
-      
               <img src={filesIcon} alt="files icon for absence booking" />
               <p> Bank Holidays</p>
             </Link>

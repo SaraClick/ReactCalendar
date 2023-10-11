@@ -3,11 +3,8 @@ import Calendar from "react-calendar";
 import { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 
-
 function CalendarPicker() {
   const [date, setDate] = useState(new Date());
-
-  
 
   return (
     <>
