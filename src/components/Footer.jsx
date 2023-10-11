@@ -1,10 +1,12 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 
 function Footer() {
   return (
-    <footer>&#169;Sara Bonnin Richaud</footer>
-  )
+    <footer className="footer text-center text-lg-start">
+      <p className="text-center text-mutted">&#169;Sara Bonnin Richaud</p>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

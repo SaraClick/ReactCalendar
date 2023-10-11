@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function Header() {
   return (
-    <Nav className="navbar navbar-expand-lg bg-body-tertiary" activeKey="/" onSelect={(selectedKey) => (activeKey = selectedKey)}>
+    <Nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" activeKey="/" onSelect={(selectedKey) => (activeKey = selectedKey)}>
       <Nav.Item>
         <Nav.Link href="/">OutOfOffice</Nav.Link>
       </Nav.Item>
