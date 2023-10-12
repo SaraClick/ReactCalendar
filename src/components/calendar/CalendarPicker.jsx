@@ -3,6 +3,7 @@ import Calendar from "react-calendar";
 import { useState, useEffect, useRef } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import "../../App.css";
+import dayjs from "dayjs";
 
 function CalendarPicker({
   holidays,
@@ -16,6 +17,8 @@ function CalendarPicker({
 
   const [daysPicked, setDaysPicked] = useState([]);
 
+  const [daysBooked, setDaysBooked] = useState([]);
+
   /**
    @todo: 
    - Add Bank Holidays to the calendar so we can visually identify them (same as weekend)
@@ -28,6 +31,8 @@ function CalendarPicker({
 
   function dateClick(e) {
     setDate(e);
+
+    if (dayjs(e).isAfter(dayjs())) {
     if (!daysPicked.includes(e.toDateString())) {
       if (e.getDay() === 6 || e.getDay() === 0) {
         alert("Weekends cannot be booked as holiday");
@@ -42,7 +47,9 @@ function CalendarPicker({
       );
       setDaysPicked(newDaysPicked);
     }
-  }
+  } else {
+    alert("You cannot book days in the past")
+  }}
 
   // Function to customize the colour of calendar tiles
   const tileClassName = ({ date, view }) => {
@@ -68,6 +75,8 @@ function CalendarPicker({
         "You cannot book more days than the available.\nPlease review your selection."
       );
     } else {
+      setDaysBooked(daysBooked.concat(daysPicked))
+      console.log("daysBooked", daysBooked)
       console.log("setAllowanceUsed: ", allowanceUsed - numDays);
       setAllowanceUsed(allowanceUsed + numDays);
       setAllowanceAvailable(allowanceAvailable - numDays);
@@ -93,7 +102,7 @@ function CalendarPicker({
       </Container>
 
       <Container className="container booking">
-        <Button onClick={submitBooking}>Book Days</Button>
+        <Button onClick={submitBooking}>Book {daysPicked.length ? daysPicked.length : ""} days</Button>
         {/* Render the selected dates with the CSS class */}
         <div className="list-booked">
           {daysPicked.map((selectedDate, index) => (
