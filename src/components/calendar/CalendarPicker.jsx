@@ -6,7 +6,7 @@ import "../../App.css";
 import dayjs from "dayjs";
 
 function CalendarPicker({
-  holidays,
+  bankHolidays,
   allowance,
   allowanceUsed,
   allowanceAvailable,
@@ -19,7 +19,7 @@ function CalendarPicker({
 
   const [daysBooked, setDaysBooked] = useState([]);
 
-  console.log("Calendar Page, holidays:" , holidays)
+  console.log("Calendar Page, holidays:" , bankHolidays)
 
   /**
    @todo: 

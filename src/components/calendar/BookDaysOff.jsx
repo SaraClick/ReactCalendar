@@ -10,7 +10,7 @@ function BookDaysOff({
   allowanceAvailable,
   setAllowanceUsed,
   setAllowanceAvailable,
-  holidays,
+  bankHolidays,
 }) {
   return (
     <Container>
@@ -23,7 +23,7 @@ function BookDaysOff({
       </Row>
       <Row>
         <CalendarPicker
-          holidays={holidays}
+          bankHolidays={bankHolidays}
           allowance={allowance}
           allowanceUsed={allowanceUsed}
           allowanceAvailable={allowanceAvailable}

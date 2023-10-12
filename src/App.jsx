@@ -6,12 +6,14 @@ import Holidays from "./components/holidays/Holidays";
 import BookDaysOff from "./components/calendar/BookDaysOff";
 import HomePage from "./components/homepage/HomePage";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import GetBankHolidays from "./components/data/GetBankHolidays"
 
 function App() {
-  const [holidays, setHolidays] = useState({ division: "", events: [] });
   const [allowance, setAllowance] = useState(25);
   const [allowanceUsed, setAllowanceUsed] = useState(0);
   const [allowanceAvailable, setAllowanceAvailable] = useState(allowance - allowanceUsed);
+
+  const bankHolidays = GetBankHolidays();
 
   return (
     <>
@@ -34,7 +36,7 @@ function App() {
               <Route
                 path="/Holidays"
                 element={
-                  <Holidays holidays={holidays} setHolidays={setHolidays} />
+                  <Holidays bankHolidays={bankHolidays} />
                 }
               />
               <Route
@@ -46,7 +48,7 @@ function App() {
                     setAllowanceUsed={setAllowanceUsed}
                     allowanceAvailable={allowanceAvailable}
                     setAllowanceAvailable={setAllowanceAvailable}
-                    holidays={holidays}
+                    bankHolidays={bankHolidays}
                   />
                 }
               />
