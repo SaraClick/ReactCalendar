@@ -83,10 +83,11 @@ div.card {
 .react-calendar {
   width: 350px;
   max-width: 100%;
-  background: rgb(150, 155, 160);
-  border: 1px solid #6d689f;
+  background: rgb(148, 150, 153);
+  border: 1px solid rgb(148, 150, 153);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
+  border-radius: 15px;
 }
 
 .react-calendar--doubleView {
@@ -139,7 +140,7 @@ div.card {
 
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
-  background-color: #e6e6e6;
+  background-color: rgb(80, 81, 83);
 }
 
 .react-calendar__month-view__weekdays {
@@ -163,6 +164,7 @@ div.card {
 
 .react-calendar__month-view__days__day--weekend {
   color: #9c0909;
+  
 }
 
 .react-calendar__month-view__days__day--neighboringMonth {
@@ -192,7 +194,7 @@ div.card {
   }
 
 .react-calendar__tile--now {
-  background: #cbcbc8;
+  background: #b7b7b4;
   color: black;
 }
 
@@ -210,16 +212,6 @@ div.card {
   background: #a9d4ff;
 }
 
-/* .react-calendar__tile--active {
-  background: #185693;
-  color: rgb(234, 225, 225);
-} */
-
-/* .react-calendar__tile--active:enabled:hover,
-.react-calendar__tile--active:enabled:focus {
-  background: #1087ff;
-} */
-
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #372d2d;
 }
@@ -227,7 +219,6 @@ div.card {
 .selected-date {
   background-color: #276f7f;
 }
-
 
 /* !important needed to overwrite bootstrap styling */
 .btn-primary, .btn-primary:active, .btn-primary:visited  {
@@ -250,8 +241,4 @@ div.card {
 
 .list-booked{
   background: #276f7f;
-}
-
-.description{
-  font-size: 3px;
 }
