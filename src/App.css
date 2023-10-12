@@ -228,6 +228,8 @@ div.card {
   background-color: #276f7f;
 }
 
+
+/* !important needed to overwrite bootstrap styling */
 .btn-primary, .btn-primary:active, .btn-primary:visited  {
   background-color: #276f7f !important;
   border-color: #276f7f !important;;
