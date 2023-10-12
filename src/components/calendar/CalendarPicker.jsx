@@ -74,16 +74,6 @@ function CalendarPicker({
   };
 
 
-  // Add info on tiles
-  const tileContent =  ({ activeStartDate, date, view }) => {
-    let result = null;
-    if(view === 'month') {
-      if(bankHolidayStrings.includes(date.toDateString())) {
-        result = <p className="description">Bank Holiday</p>
-      }
-    return result
-  }}
-
   const submitBooking = () => {
     const numDays = daysPicked.length;
     console.log("daysPicked", daysPicked);
@@ -111,22 +101,17 @@ function CalendarPicker({
             onChange={dateClick}
             value={date}
             tileClassName={tileClassName}
-            tileContent={tileContent}
           />
         </Row>
         <Row>
           <p>
-            <span className="react-calendar__tile--now">Today</span> ||{" "}
-            <span className="selected-date">Picked, not yet booked</span> ||{" "}
-            <span className="booked-date">Booked day</span>{" "}
-            <span className="bankholiday">Bank Holiday</span>
+            <span className="react-calendar__tile--now badge badge-secondary">Today</span> 
+            <span className="selected-date badge badge-secondary">Picked, not yet booked</span> 
+            <span className="booked-date badge badge-secondary">Booked day</span>
+            <span className="bankholiday badge badge-secondary">Bank Holiday</span>
           </p>
         </Row>
-        {/* <Row>
-          <div className="text-center pagetitle">
-            Selected date: {date.toDateString()}
-          </div>
-        </Row> */}
+ 
       </Container>
 
       <Container className="container booking">
