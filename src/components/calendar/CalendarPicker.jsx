@@ -60,6 +60,9 @@ function CalendarPicker({
         // class name to be returned
         result += "selected-date";
       }
+      if (daysBooked.includes(dateString)) {
+        result += "booked-date";
+      }
     }
 
     return result;
@@ -93,6 +96,9 @@ function CalendarPicker({
             value={date}
             tileClassName={tileClassName}
           />
+        </Row>
+        <Row>
+          <p><span className="react-calendar__tile--now">Today</span>  ||  <span className="selected-date">Picked, not yet booked</span>  ||  <span className="booked-date">Booked day</span></p>
         </Row>
         {/* <Row>
           <div className="text-center pagetitle">
