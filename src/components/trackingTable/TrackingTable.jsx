@@ -2,7 +2,10 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
-function TrackingTable({ allowance, daysBooked }) {
+function TrackingTable({ allowance, allowanceUsed, allowanceAvailable }) {
+
+
+
   return (
     <Table bordered className="table table-striped table-dark allowance-table">
       <thead>
@@ -15,8 +18,8 @@ function TrackingTable({ allowance, daysBooked }) {
       <tbody>
         <tr>
           <td>{allowance}</td>
-          <td>{daysBooked}</td>
-          <td>{allowance - daysBooked}</td>
+          <td>{allowanceUsed}</td>
+          <td>{allowanceAvailable}</td>
         </tr>
       </tbody>
     </Table>

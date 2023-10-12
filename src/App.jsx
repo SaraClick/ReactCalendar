@@ -10,7 +10,8 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 function App() {
   const [holidays, setHolidays] = useState({ division: "", events: [] });
   const [allowance, setAllowance] = useState(25);
-  const [daysBooked, setDaysBooked] = useState(0);
+  const [allowanceUsed, setAllowanceUsed] = useState(0);
+  const [allowanceAvailable, setAllowanceAvailable] = useState(allowance - allowanceUsed);
 
   return (
     <>
@@ -22,7 +23,12 @@ function App() {
               <Route
                 path="/"
                 element={
-                  <HomePage allowance={allowance} daysBooked={daysBooked} />
+                  <HomePage
+                    allowance={allowance}
+                    allowanceUsed={allowanceUsed}
+                    allowanceAvailable={allowanceAvailable}
+                    setAllowanceAvailable={setAllowanceAvailable}
+                  />
                 }
               />
               <Route
@@ -31,7 +37,19 @@ function App() {
                   <Holidays holidays={holidays} setHolidays={setHolidays} />
                 }
               />
-              <Route path="/Calendar" element={<BookDaysOff allowance={allowance} daysBooked={daysBooked} holidays={holidays}/>} />
+              <Route
+                path="/Calendar"
+                element={
+                  <BookDaysOff
+                    allowance={allowance}
+                    allowanceUsed={allowanceUsed}
+                    setAllowanceUsed={setAllowanceUsed}
+                    allowanceAvailable={allowanceAvailable}
+                    setAllowanceAvailable={setAllowanceAvailable}
+                    holidays={holidays}
+                  />
+                }
+              />
             </Routes>
           </div>
           <Footer />

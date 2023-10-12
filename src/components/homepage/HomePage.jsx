@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import TrackingTable from "../trackingTable/TrackingTable";
 
-function HomePage({ allowance, daysBooked }) {
+function HomePage({ allowance, allowanceUsed, allowanceAvailable }) {
   return (
     <>
       <Container className="homepage-container container-fluid">
-        <TrackingTable allowance={allowance} daysBooked={daysBooked} />
+        <TrackingTable
+          allowance={allowance}
+          allowanceUsed={allowanceUsed}
+          allowanceAvailable={allowanceAvailable}
+        />
 
         <Row>
           <Col>

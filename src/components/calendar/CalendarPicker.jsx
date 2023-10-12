@@ -1,10 +1,17 @@
 import React from "react";
 import Calendar from "react-calendar";
 import { useState, useEffect, useRef } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import "../../App.css";
 
-function CalendarPicker({ holidays }) {
+function CalendarPicker({
+  holidays,
+  allowance,
+  allowanceUsed,
+  allowanceAvailable,
+  setAllowanceUsed,
+  setAllowanceAvailable,
+}) {
   const [date, setDate] = useState(new Date());
 
   const [daysPicked, setDaysPicked] = useState([]);
@@ -51,14 +58,26 @@ function CalendarPicker({ holidays }) {
     return result;
   };
 
-  // gets called on re-render
-
-  console.log("render");
-  console.log(daysPicked);
+  const submitBooking = () => {
+    const numDays = daysPicked.length;
+    console.log("daysPicked", daysPicked);
+    console.log("numDays", numDays);
+    if (numDays > allowanceAvailable) {
+      console.log("allowanceAvailable: ", allowanceAvailable);
+      alert(
+        "You cannot book more days than the available.\nPlease review your selection."
+      );
+    } else {
+      console.log("setAllowanceUsed: ", allowanceUsed - numDays);
+      setAllowanceUsed(allowanceUsed + numDays);
+      setAllowanceAvailable(allowanceAvailable - numDays);
+      setDaysPicked([]);
+    }
+  };
 
   return (
     <>
-      <Container className="calendar-container">
+      <Container className="calendar-container container">
         <Row>
           <Calendar
             onChange={dateClick}
@@ -66,18 +85,22 @@ function CalendarPicker({ holidays }) {
             tileClassName={tileClassName}
           />
         </Row>
-        <Row>
+        {/* <Row>
           <div className="text-center pagetitle">
             Selected date: {date.toDateString()}
           </div>
-        </Row>
+        </Row> */}
       </Container>
-      {/* Render the selected dates with the CSS class */}
-      <div className="list-booked">
-        {daysPicked.map((selectedDate, index) => (
-          <div key={index}>{selectedDate}</div>
-        ))}
-      </div>
+
+      <Container className="container booking">
+        <Button onClick={submitBooking}>Book Days</Button>
+        {/* Render the selected dates with the CSS class */}
+        <div className="list-booked">
+          {daysPicked.map((selectedDate, index) => (
+            <div key={index}>{selectedDate}</div>
+          ))}
+        </div>
+      </Container>
     </>
   );
 }
