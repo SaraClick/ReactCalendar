@@ -19,41 +19,39 @@ function CalendarPicker({
 
   const [daysBooked, setDaysBooked] = useState([]);
 
-  console.log("Calendar Page, holidays:" , bankHolidays)
+  console.log("Calendar Page, holidays:", bankHolidays);
 
-  /**
-   @todo: 
-   - Add Bank Holidays to the calendar so we can visually identify them (same as weekend)
-   - Raise an alert if Bank Holiday is Selected
-   DONE - Button to book the daysPicked on click
-      DONE - booked days should show in a different color
-      DONE - available and booked days to be adjusted upon booking (pass down setters)
-      DONE - user should not be allowed to select booked days (add a use state for bookedDays?)
-  **/
+  const bankHolidayStrings = bankHolidays.map((holiday) =>
+    dayjs(holiday.date).toDate().toDateString()
+  );
+  console.log("bankHolidayDates: ", bankHolidayStrings);
 
   function dateClick(e) {
     setDate(e);
 
-    if(daysBooked.includes(e.toDateString())) {
-      alert("Day already booked.")
+    if (daysBooked.includes(e.toDateString())) {
+      alert("Day already booked.");
+    } else if (bankHolidayStrings.includes(e.toDateString())) {
+      alert("Public Bank Holiday, already off work!");
     } else if (dayjs(e).isAfter(dayjs())) {
-    if (!daysPicked.includes(e.toDateString())) {
-      if (e.getDay() === 6 || e.getDay() === 0) {
-        alert("Weekends cannot be booked as holiday");
+      if (!daysPicked.includes(e.toDateString())) {
+        if (e.getDay() === 6 || e.getDay() === 0) {
+          alert("Weekends cannot be booked as holiday");
+        } else {
+          // ...daysPicked is creating a shallow copy of the array
+          setDaysPicked([...daysPicked, e.toDateString()]);
+        }
       } else {
-        // ...daysPicked is creating a shallow copy of the array
-        setDaysPicked([...daysPicked, e.toDateString()]);
+        // creates a new array removing the unselected item and sets the DayPicked to that new array
+        const newDaysPicked = daysPicked.filter(
+          (day) => day !== e.toDateString()
+        );
+        setDaysPicked(newDaysPicked);
       }
     } else {
-      // creates a new array removing the unselected item and sets the DayPicked to that new array
-      const newDaysPicked = daysPicked.filter(
-        (day) => day !== e.toDateString()
-      );
-      setDaysPicked(newDaysPicked);
+      alert("You cannot book days in the past");
     }
-  } else {
-    alert("You cannot book days in the past")
-  }}
+  }
 
   // Function to customize the colour of calendar tiles
   const tileClassName = ({ date, view }) => {
@@ -66,6 +64,9 @@ function CalendarPicker({
       }
       if (daysBooked.includes(dateString)) {
         result += "booked-date";
+      }
+      if (bankHolidayStrings.includes(dateString)) {
+        result += "bankholiday";
       }
     }
 
@@ -82,8 +83,8 @@ function CalendarPicker({
         "You cannot book more days than the available.\nPlease review your selection."
       );
     } else {
-      setDaysBooked(daysBooked.concat(daysPicked))
-      console.log("daysBooked", daysBooked)
+      setDaysBooked(daysBooked.concat(daysPicked));
+      console.log("daysBooked", daysBooked);
       console.log("setAllowanceUsed: ", allowanceUsed - numDays);
       setAllowanceUsed(allowanceUsed + numDays);
       setAllowanceAvailable(allowanceAvailable - numDays);
@@ -102,7 +103,12 @@ function CalendarPicker({
           />
         </Row>
         <Row>
-          <p><span className="react-calendar__tile--now">Today</span>  ||  <span className="selected-date">Picked, not yet booked</span>  ||  <span className="booked-date">Booked day</span></p>
+          <p>
+            <span className="react-calendar__tile--now">Today</span> ||{" "}
+            <span className="selected-date">Picked, not yet booked</span> ||{" "}
+            <span className="booked-date">Booked day</span>{" "}
+            <span className="bankholiday">Bank Holiday</span>
+          </p>
         </Row>
         {/* <Row>
           <div className="text-center pagetitle">
@@ -112,7 +118,9 @@ function CalendarPicker({
       </Container>
 
       <Container className="container booking">
-        <Button onClick={submitBooking}>Book {daysPicked.length ? daysPicked.length : ""} days</Button>
+        <Button onClick={submitBooking}>
+          Book {daysPicked.length ? daysPicked.length : ""} days
+        </Button>
         {/* Render the selected dates with the CSS class */}
         <div className="list-booked">
           {daysPicked.map((selectedDate, index) => (
