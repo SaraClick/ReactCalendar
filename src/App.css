@@ -228,6 +228,15 @@ div.card {
   background-color: #276f7f;
 }
 
+.btn-primary, .btn-primary:active, .btn-primary:visited  {
+  background-color: #276f7f !important;
+  border-color: #276f7f !important;;
+}
+
+.btn-primary:hover {
+  background-color: #30889c !important;
+}
+
 .booked-date {
   background-color: #a1456a;
 }
@@ -239,4 +248,8 @@ div.card {
 
 .list-booked{
   background: #276f7f;
+}
+
+.description{
+  font-size: 3px;
 }

@@ -73,6 +73,17 @@ function CalendarPicker({
     return result;
   };
 
+
+  // Add info on tiles
+  const tileContent =  ({ activeStartDate, date, view }) => {
+    let result = null;
+    if(view === 'month') {
+      if(bankHolidayStrings.includes(date.toDateString())) {
+        result = <p className="description">Bank Holiday</p>
+      }
+    return result
+  }}
+
   const submitBooking = () => {
     const numDays = daysPicked.length;
     console.log("daysPicked", daysPicked);
@@ -100,6 +111,7 @@ function CalendarPicker({
             onChange={dateClick}
             value={date}
             tileClassName={tileClassName}
+            tileContent={tileContent}
           />
         </Row>
         <Row>
@@ -118,7 +130,7 @@ function CalendarPicker({
       </Container>
 
       <Container className="container booking">
-        <Button onClick={submitBooking}>
+        <Button className="book-button" onClick={submitBooking}>
           Book {daysPicked.length ? daysPicked.length : ""} days
         </Button>
         {/* Render the selected dates with the CSS class */}
