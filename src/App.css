@@ -51,7 +51,7 @@ table {
   width: 100%;
 }
 th {
-  background-color: rgb(148, 150, 153) !important;
+  background-color: #949699 !important;
   color: white !important;
   width: 33%;
 }
@@ -60,9 +60,21 @@ td {
   width: 33%;
 }
 
-tr {
-  width: 33%;
+.accordion-button{
+  --bs-accordion-btn-bg: #949699 ;
+  --bs-accordion-btn-color: white ;
+  --bs-accordion-active-bg:  #949699 ;
+  --bs-accordion-active-color:  white;
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-border-color: none;
 }
+
+div.accordion{
+  --bs-accordion-bg:   #949699  ;
+  --bs-accordion-border-color: none;
+
+}
+
 
 /* Using Grid to stick Footer to bottom https://webtips.dev/align-footer-to-bottom-of-page-in-css?utm_content=cmp-true*/
 #root,

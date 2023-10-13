@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import CalendarPicker from "./calendar/CalendarPicker";
 import TrackingTable from "./trackingTable/TrackingTable";
 import Holidays from "./bankHolidays/BankHolidays";
+import Accordion from "react-bootstrap/Accordion";
+import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 
 function BookDaysOff({
   allowance,
@@ -35,7 +37,16 @@ function BookDaysOff({
             />
           </Row>
           <Row>
-            <Holidays bankHolidays={bankHolidays} />
+            
+
+            <Accordion >
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Upcoming Bank Holidays</Accordion.Header>
+                <Accordion.Body>
+                <Holidays bankHolidays={bankHolidays} />
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
           </Row>
         </Col>
       </Row>

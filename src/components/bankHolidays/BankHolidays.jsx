@@ -10,7 +10,6 @@ function Holidays({ bankHolidays }) {
   return (
     <>
       <Container className="container">
-        <h2 className="pagetitle">Bank Holidays</h2>
         <div className="holiday-events">
           {bankHolidays.map((holiday, index) => {
             if (dayjs(holiday.date).isAfter(dayjs())) {
