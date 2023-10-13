@@ -105,10 +105,10 @@ function CalendarPicker({
         </Row>
         <Row>
           <p>
-            <span className="react-calendar__tile--now badge badge-secondary">Today</span> 
-            <span className="selected-date badge badge-secondary">Picked, not yet booked</span> 
-            <span className="booked-date badge badge-secondary">Booked day</span>
-            <span className="bankholiday badge badge-secondary">Bank Holiday</span>
+            <span className="react-calendar__tile--now badge badge-secondary color-legend">Today</span> 
+            <span className="selected-date badge badge-secondary color-legend">Picked, not yet booked</span> 
+            <span className="booked-date badge badge-secondary color-legend">Booked day</span>
+            <span className="bankholiday badge badge-secondary color-legend">Bank Holiday</span>
           </p>
         </Row>
  
@@ -119,11 +119,13 @@ function CalendarPicker({
           Book {daysPicked.length ? daysPicked.length : ""} days
         </Button>
         {/* Render the selected dates with the CSS class */}
-        <div className="list-booked">
+       <Container className="list-booked-container">
+          <div className="list-booked">
           {daysPicked.map((selectedDate, index) => (
             <div key={index}>{selectedDate}</div>
-          ))}
-        </div>
+          ))}</div>
+          
+          </Container>
       </Container>
     </>
   );

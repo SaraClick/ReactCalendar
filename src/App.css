@@ -238,7 +238,18 @@ div.card {
   background-color: #685dad;
 }
 
-
+.list-booked-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .list-booked{
   background: #276f7f;
+  margin: 1rem;
+  width: 25rem;
+  border-radius: 15px;
+}
+
+.color-legend{
+  margin: 5px;
 }
