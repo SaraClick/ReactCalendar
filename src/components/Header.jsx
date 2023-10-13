@@ -9,7 +9,7 @@ function Header({}) {
   return (
     <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img className="logo" src={Logo} alt="Suitcase logo of BookDaysOff" />
           BookDaysOff
         </Navbar.Brand>
