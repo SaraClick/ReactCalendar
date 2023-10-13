@@ -2,6 +2,7 @@ html {
   height: 100%;
   text-align: center;
   font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
 }
 
 #root {
@@ -41,6 +42,28 @@ footer p {
   height: 2rem;
 }
 
+/* TABLE */
+table {
+  border-collapse: collapse;
+  border-radius: 15px;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+}
+th {
+  background-color: rgb(148, 150, 153) !important;
+  color: white !important;
+  width: 33%;
+}
+td {
+  background-color: #b7b7b4 !important;
+  width: 33%;
+}
+
+tr {
+  width: 33%;
+}
+
 /* Using Grid to stick Footer to bottom https://webtips.dev/align-footer-to-bottom-of-page-in-css?utm_content=cmp-true*/
 #root,
 body {
@@ -50,7 +73,7 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-/* holiday cards */
+/* CARDS (bank holiday) */
 
 .layout {
   display: flex;
@@ -68,9 +91,8 @@ body {
 }
 
 .card {
-  border: 1px solid;
-  border-radius: 20px;
-  margin: 0.3rem;
+  border-radius: 15px;
+  margin: 0.4rem 0.1rem;
   padding: 0;
   height: 20rem;
   width: 10rem;

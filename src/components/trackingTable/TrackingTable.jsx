@@ -4,7 +4,10 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function TrackingTable({ allowance, allowanceUsed, allowanceAvailable }) {
   return (
-    <Table bordered className="table table-striped table-dark allowance-table">
+    <Table
+      bordered
+      className="allowance-table table table-secondary table-bordered table-sm"
+    >
       <thead>
         <tr>
           <th>Yearly allowance</th>
@@ -12,7 +15,7 @@ function TrackingTable({ allowance, allowanceUsed, allowanceAvailable }) {
           <th>Available</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="table-group-divider">
         <tr>
           <td>{allowance}</td>
           <td>{allowanceUsed}</td>
