@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import CalendarPicker from "./CalendarPicker";
-import TrackingTable from "../trackingTable/TrackingTable";
-import Holidays from "../holidays/Holidays";
+import CalendarPicker from "./calendar/CalendarPicker";
+import TrackingTable from "./trackingTable/TrackingTable";
+import Holidays from "./bankHolidays/BankHolidays";
 
 function BookDaysOff({
   allowance,
@@ -16,8 +16,7 @@ function BookDaysOff({
   return (
     <Container>
       <Row>
-    
-      <Col>
+        <Col>
           <CalendarPicker
             bankHolidays={bankHolidays}
             allowance={allowance}
@@ -26,19 +25,19 @@ function BookDaysOff({
             setAllowanceUsed={setAllowanceUsed}
             setAllowanceAvailable={setAllowanceAvailable}
           />
-      </Col>
-      <Col>
-        <Row>
-          <TrackingTable
-            allowance={allowance}
-            allowanceUsed={allowanceUsed}
-            allowanceAvailable={allowanceAvailable}
-          />
-        </Row>
-        <Row>
-          <Holidays bankHolidays={bankHolidays}/>
-        </Row>
-      </Col>
+        </Col>
+        <Col>
+          <Row>
+            <TrackingTable
+              allowance={allowance}
+              allowanceUsed={allowanceUsed}
+              allowanceAvailable={allowanceAvailable}
+            />
+          </Row>
+          <Row>
+            <Holidays bankHolidays={bankHolidays} />
+          </Row>
+        </Col>
       </Row>
     </Container>
   );

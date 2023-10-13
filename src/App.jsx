@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import BookDaysOff from "./components/calendar/BookDaysOff";
+import BookDaysOff from "./components/BookDaysOff";
 import GetBankHolidays from "./components/data/GetBankHolidays";
 
 function App() {

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 import { Container, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";

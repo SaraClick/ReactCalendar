@@ -7,7 +7,6 @@ import dayjs from "dayjs";
 
 function CalendarPicker({
   bankHolidays,
-  allowance,
   allowanceUsed,
   allowanceAvailable,
   setAllowanceUsed,
@@ -73,7 +72,6 @@ function CalendarPicker({
     return result;
   };
 
-
   const submitBooking = () => {
     const numDays = daysPicked.length;
     console.log("daysPicked", daysPicked);
@@ -105,13 +103,20 @@ function CalendarPicker({
         </Row>
         <Row>
           <p>
-            <span className="react-calendar__tile--now badge badge-secondary color-legend">Today</span> 
-            <span className="selected-date badge badge-secondary color-legend">Picked, not yet booked</span> 
-            <span className="booked-date badge badge-secondary color-legend">Booked day</span>
-            <span className="bankholiday badge badge-secondary color-legend">Bank Holiday</span>
+            <span className="react-calendar__tile--now badge badge-secondary color-legend">
+              Today
+            </span>
+            <span className="selected-date badge badge-secondary color-legend">
+              Picked, not yet booked
+            </span>
+            <span className="booked-date badge badge-secondary color-legend">
+              Booked day
+            </span>
+            <span className="bankholiday badge badge-secondary color-legend">
+              Bank Holiday
+            </span>
           </p>
         </Row>
- 
       </Container>
 
       <Container className="container booking">
@@ -119,13 +124,13 @@ function CalendarPicker({
           Book {daysPicked.length ? daysPicked.length : ""} days
         </Button>
         {/* Render the selected dates with the CSS class */}
-       <Container className="list-booked-container">
+        <Container className="list-booked-container">
           <div className="list-booked">
-          {daysPicked.map((selectedDate, index) => (
-            <div key={index}>{selectedDate}</div>
-          ))}</div>
-          
-          </Container>
+            {daysPicked.map((selectedDate, index) => (
+              <div key={index}>{selectedDate}</div>
+            ))}
+          </div>
+        </Container>
       </Container>
     </>
   );

@@ -3,9 +3,6 @@ import { Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
 function TrackingTable({ allowance, allowanceUsed, allowanceAvailable }) {
-
-
-
   return (
     <Table bordered className="table table-striped table-dark allowance-table">
       <thead>
