@@ -1,6 +1,6 @@
 import React from "react";
 import Calendar from "react-calendar";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import "../../App.css";
 import dayjs from "dayjs";
@@ -11,14 +11,12 @@ function CalendarPicker({
   allowanceAvailable,
   setAllowanceUsed,
   setAllowanceAvailable,
+  daysBooked,
+  setDaysBooked
 }) {
   const [date, setDate] = useState(new Date());
 
   const [daysPicked, setDaysPicked] = useState([]);
-
-  const [daysBooked, setDaysBooked] = useState([]);
-
-  console.log("Calendar Page, holidays:", bankHolidays);
 
   const bankHolidayStrings = bankHolidays.map((holiday) =>
     dayjs(holiday.date).toDate().toDateString()
@@ -74,22 +72,23 @@ function CalendarPicker({
 
   const submitBooking = () => {
     const numDays = daysPicked.length;
-    console.log("daysPicked", daysPicked);
-    console.log("numDays", numDays);
+    // console.log("daysPicked", daysPicked);
+    // console.log("numDays", numDays);
     if (numDays > allowanceAvailable) {
-      console.log("allowanceAvailable: ", allowanceAvailable);
+      // console.log("allowanceAvailable: ", allowanceAvailable);
       alert(
         "You cannot book more days than the available.\nPlease review your selection."
       );
     } else {
       setDaysBooked(daysBooked.concat(daysPicked));
-      console.log("daysBooked", daysBooked);
-      console.log("setAllowanceUsed: ", allowanceUsed - numDays);
+      // console.log("daysBooked", daysBooked);
+      // console.log("setAllowanceUsed: ", allowanceUsed - numDays);
       setAllowanceUsed(allowanceUsed + numDays);
       setAllowanceAvailable(allowanceAvailable - numDays);
       setDaysPicked([]);
     }
   };
+  console.log("daysBooked after submit:", daysBooked);
 
   return (
     <>

@@ -3,9 +3,10 @@ import { Container, Col, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import CalendarPicker from "./calendar/CalendarPicker";
 import TrackingTable from "./trackingTable/TrackingTable";
-import Holidays from "./bankHolidays/BankHolidays";
+import BankHolidays from "./bankHolidays/BankHolidays";
 import Accordion from "react-bootstrap/Accordion";
-import { useAccordionButton } from 'react-bootstrap/AccordionButton';
+import BookedHolidays from "./bookedHolidays/BookedHolidays";
+import { useState } from "react";
 
 function BookDaysOff({
   allowance,
@@ -15,6 +16,9 @@ function BookDaysOff({
   setAllowanceAvailable,
   bankHolidays,
 }) {
+
+  const [daysBooked, setDaysBooked] = useState([]);
+
   return (
     <Container>
       <Row>
@@ -26,6 +30,8 @@ function BookDaysOff({
             allowanceAvailable={allowanceAvailable}
             setAllowanceUsed={setAllowanceUsed}
             setAllowanceAvailable={setAllowanceAvailable}
+            daysBooked={daysBooked}
+            setDaysBooked={setDaysBooked}
           />
         </Col>
         <Col>
@@ -41,12 +47,19 @@ function BookDaysOff({
 
             <Accordion >
               <Accordion.Item eventKey="0">
-                <Accordion.Header>Upcoming Bank Holidays</Accordion.Header>
+                <Accordion.Header>View upcoming Public Bank Holidays</Accordion.Header>
                 <Accordion.Body>
-                <Holidays bankHolidays={bankHolidays} />
+                <BankHolidays bankHolidays={bankHolidays} />
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>View your upcoming Booked Holidays</Accordion.Header>
+                <Accordion.Body>
+                <BookedHolidays daysBooked={daysBooked} />
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
+            
           </Row>
         </Col>
       </Row>
