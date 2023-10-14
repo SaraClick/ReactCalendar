@@ -16,7 +16,7 @@ function BankHolidays({ bankHolidays }) {
           {bankHolidays.map((holiday, index) => {
             if (dayjs(holiday.date).isAfter(dayjs()) && dayjs(holiday.date).isBefore(dayjs(todayPlusOneYear))) {
               return (
-                <Cards key={index} title={holiday.title} date={holiday.date} />
+                <Cards key={index} title={holiday.title} date={dayjs(holiday.date).format("D MMMM YYYY")} />
               );
             }
           })}
