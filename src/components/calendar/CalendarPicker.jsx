@@ -1,7 +1,7 @@
 import React from "react";
 import Calendar from "react-calendar";
 import { useState } from "react";
-import { Button, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import "../../App.css";
 import dayjs from "dayjs";
 
@@ -12,11 +12,11 @@ function CalendarPicker({
   setAllowanceUsed,
   setAllowanceAvailable,
   daysBooked,
-  setDaysBooked
+  setDaysBooked,
+  daysPicked,
+  setDaysPicked,
 }) {
   const [date, setDate] = useState(new Date());
-
-  const [daysPicked, setDaysPicked] = useState([]);
 
   const bankHolidayStrings = bankHolidays.map((holiday) =>
     dayjs(holiday.date).toDate().toDateString()
@@ -117,20 +117,6 @@ function CalendarPicker({
             </span>
           </p>
         </Row>
-      </Container>
-
-      <Container className="container booking">
-        <Button className="book-button" onClick={submitBooking}>
-          Book {daysPicked.length ? daysPicked.length : ""} days
-        </Button>
-        {/* Render the selected dates with the CSS class */}
-        <Container className="list-booked-container">
-          <div className="list-booked">
-            {daysPicked.map((selectedDate, index) => (
-              (<div key={index}>{dayjs(selectedDate).format("D MMMM YYYY")}</div>)
-            ))}
-          </div>
-        </Container>
       </Container>
     </>
   );

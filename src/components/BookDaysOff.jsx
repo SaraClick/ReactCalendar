@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import CalendarPicker from "./calendar/CalendarPicker";
 import TrackingTable from "./trackingTable/TrackingTable";
 import UpcomingAccordion from "./accordionUpcomingView/UpcomingAccordion";
+import BookingButton from "./calendar/BookingButton";
+import ListPickedDays from "./calendar/ListPickedDays";
 import { useState } from "react";
 
 function BookDaysOff({
@@ -15,6 +17,7 @@ function BookDaysOff({
   bankHolidays,
 }) {
   const [daysBooked, setDaysBooked] = useState([]);
+  const [daysPicked, setDaysPicked] = useState([]);
 
   return (
     <Row>
@@ -28,7 +31,20 @@ function BookDaysOff({
           setAllowanceAvailable={setAllowanceAvailable}
           daysBooked={daysBooked}
           setDaysBooked={setDaysBooked}
+          daysPicked={daysPicked}
+          setDaysPicked={setDaysPicked}
         />
+        <BookingButton
+          daysPicked={daysPicked}
+          setDaysPicked={setDaysPicked}
+          allowanceAvailable={allowanceAvailable}
+          setDaysBooked={setDaysBooked}
+          allowanceUsed={allowanceUsed}
+          setAllowanceUsed={setAllowanceUsed}
+          setAllowanceAvailable={setAllowanceAvailable}
+          daysBooked={daysBooked}
+        />
+        <ListPickedDays daysPicked={daysPicked} />
       </Col>
       <Col>
         <Row>
