@@ -1,8 +1,14 @@
-# React + Vite
+## BookOffTime
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 💻 Project info
+Learning project completed while learning React using Vite. 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 💡 Main Features
+- Get Public Bank Holidays from the gov.uk website
+- Show upcoming Public Bank Holidays
+- Allow users to view a calendar to:
+    - Select days to be booked as time off
+    - Show already booked days
+    - Constraint bookings given a set allowance
+    - Show Public Bank Holidays and weeekends and do not allow booking on these days
+- Display to the user the total allowance and its usage so far
