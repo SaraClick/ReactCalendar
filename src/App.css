@@ -316,3 +316,11 @@ div.card {
 .color-legend {
   margin: 5px;
 }
+
+/* CSS styles for screens above 1024px width */
+@media (min-width: 1024px) {
+  .content-wrap  {
+    max-width: 1024px; /* Limit the width of the body to 1024px */
+    margin: 0 auto; /* Center-align the content */
+  }
+}
