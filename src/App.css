@@ -49,11 +49,19 @@ footer p {
 }
 
 .navbar-branding {
+  text-decoration: none;
   padding-left: 20px;
+}
+.web-title{
+  color: #c89d38;
+  font-weight: bold;
+  vertical-align: middle;
 }
 
 .logo {
-  height: 2rem;
+  height: 2.3rem;
+  padding-bottom: 5px;
+
 }
 
 /* TABLE */
@@ -76,26 +84,35 @@ td {
 }
 
 /* Booked Holidays */
+.main-accordion{
+  padding-top: 2.5rem;
+}
+
 .booked-list{
   --bs-list-group-bg: #b7b7b4;
   --bs-list-group-border-color: #d0d0cd;
   font-size: 0.9rem;
 }
 
-/* ACCORDION */
-.accordion-button {
-  --bs-accordion-btn-bg: #949699;
+.accordion-bankholiday{
+  --bs-accordion-btn-bg: #685dad;
   --bs-accordion-btn-color: white;
-  --bs-accordion-active-bg: #949699;
+  --bs-accordion-active-bg: #685dad;
   --bs-accordion-active-color: white;
   --bs-accordion-btn-focus-box-shadow: none;
   --bs-accordion-border-color: none;
+  --bs-accordion-bg:#817ba5;
+}
+.accordion-bookedholidays{
+  --bs-accordion-btn-bg:  #a1456a;
+  --bs-accordion-btn-color: white;
+  --bs-accordion-active-bg: #a1456a;
+  --bs-accordion-active-color: white;
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-border-color: none;
+  --bs-accordion-bg:#a67d8e;
 }
 
-div.accordion {
-  --bs-accordion-bg: #949699;
-  --bs-accordion-border-color: #b7b7b4;
-}
 
 /* CARDS (bank holiday) */
 .layout {
@@ -108,7 +125,7 @@ div.accordion {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  background-color: rgb(148, 150, 153);
+  background-color:inherit;
   align-items: center;
   border-radius: 15px;
 }
@@ -123,6 +140,8 @@ div.accordion {
 }
 
 div.card {
+  border: 1.5px solid;
+  border-color: #d0d0cd;;
   background-color: #b7b7b4;
   border-radius: 15px;
 }
@@ -233,12 +252,11 @@ div.card {
 }
 
 .react-calendar__tile:enabled:hover {
-  background-color: #a9ae17;
+  background-color:  #b7b7b4;
 }
 
 .react-calendar__tile--now {
-  background: #b7b7b4;
-  color: black;
+  background:  #c89d38; 
 }
 
 .react-calendar__tile--now:enabled:hover,

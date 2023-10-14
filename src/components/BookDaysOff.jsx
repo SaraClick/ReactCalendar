@@ -43,17 +43,17 @@ function BookDaysOff({
         </Row>
         <Row>
           <Accordion className="main-accordion">
-            <Accordion.Item eventKey="0">
+            <Accordion.Item className="accordion-bankholiday" eventKey="0">
               <Accordion.Header>
-                View upcoming Public Bank Holidays
+                <span>View upcoming Public Bank Holidays</span>
               </Accordion.Header>
               <Accordion.Body>
                 <BankHolidays bankHolidays={bankHolidays} />
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="1">
+            <Accordion.Item className="accordion-bookedholidays" eventKey="1">
               <Accordion.Header>
-                View your upcoming Booked Holidays
+                <span>View your upcoming Booked Holidays</span>
               </Accordion.Header>
               <Accordion.Body>
                 <BookedHolidays daysBooked={daysBooked} />
