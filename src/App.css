@@ -1,5 +1,7 @@
+/* MAIN PAGE */
 html {
   height: 100%;
+  width: 100%;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
@@ -7,10 +9,26 @@ html {
 
 #root {
   background: rgb(66, 64, 64);
-  padding-top: 4em;
+  padding-top: 3em;
   padding-bottom: 0.5em;
+  min-height: 100vh;
+  width: 100%;
 }
 
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  width: 100%;
+  padding: 4rem;
+  min-height: 100vh;
+  flex: 1; /* The content takes up available space in the view port */
+}
+
+/* FOOTER */
 .footer {
   bottom: 0;
   width: 100%;
@@ -25,17 +43,13 @@ footer p {
   padding: 0.5em;
 }
 
+/* HEADER */
 .navbar {
   height: 3em;
 }
 
-.pagetitle {
-  color: beige;
-}
-
-.content-wrap {
-  /* Footer height */
-  min-height: 100vh;
+.navbar-branding {
+  padding-left: 20px;
 }
 
 .logo {
@@ -53,6 +67,7 @@ table {
 th {
   background-color: #949699 !important;
   color: white !important;
+  vertical-align: middle;
   width: 33%;
 }
 td {
@@ -60,33 +75,29 @@ td {
   width: 33%;
 }
 
-.accordion-button{
-  --bs-accordion-btn-bg: #949699 ;
-  --bs-accordion-btn-color: white ;
-  --bs-accordion-active-bg:  #949699 ;
-  --bs-accordion-active-color:  white;
+/* Booked Holidays */
+.booked-list{
+  --bs-list-group-bg: #b7b7b4;
+  --bs-list-group-border-color: #d0d0cd;
+  font-size: 0.9rem;
+}
+
+/* ACCORDION */
+.accordion-button {
+  --bs-accordion-btn-bg: #949699;
+  --bs-accordion-btn-color: white;
+  --bs-accordion-active-bg: #949699;
+  --bs-accordion-active-color: white;
   --bs-accordion-btn-focus-box-shadow: none;
   --bs-accordion-border-color: none;
 }
 
-div.accordion{
-  --bs-accordion-bg:   #949699  ;
-  --bs-accordion-border-color: none;
-
-}
-
-
-/* Using Grid to stick Footer to bottom https://webtips.dev/align-footer-to-bottom-of-page-in-css?utm_content=cmp-true*/
-#root,
-body {
-  display: grid;
-  min-height: 100vh;
-  width: 100%;
-  grid-template-rows: auto 1fr auto;
+div.accordion {
+  --bs-accordion-bg: #949699;
+  --bs-accordion-border-color: #b7b7b4;
 }
 
 /* CARDS (bank holiday) */
-
 .layout {
   display: flex;
   justify-content: space-around;
@@ -115,10 +126,6 @@ div.card {
   background-color: #b7b7b4;
   border-radius: 15px;
 }
-
-/* .calendar-container {
-  padding-top: 5rem;
-} */
 
 /* Overwriting CSS from react-calendar */
 .react-calendar {
@@ -224,10 +231,6 @@ div.card {
   text-align: center;
   line-height: 16px;
 }
-
-/* .react-calendar__tile:disabled {
-  background-color: #f0f0f0;
-} */
 
 .react-calendar__tile:enabled:hover {
   background-color: #a9ae17;

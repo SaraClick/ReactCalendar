@@ -16,9 +16,9 @@ function App() {
 
   return (
     <>
-      <div className="page-container">
+      <div className="content-wrap">
         <Header />
-        <div className="content-wrap">
+        <div className="content">
           <BookDaysOff
             allowance={allowance}
             allowanceUsed={allowanceUsed}

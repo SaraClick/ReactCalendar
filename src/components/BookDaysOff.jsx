@@ -16,54 +16,53 @@ function BookDaysOff({
   setAllowanceAvailable,
   bankHolidays,
 }) {
-
   const [daysBooked, setDaysBooked] = useState([]);
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <CalendarPicker
-            bankHolidays={bankHolidays}
+    <Row>
+      <Col>
+        <CalendarPicker
+          bankHolidays={bankHolidays}
+          allowance={allowance}
+          allowanceUsed={allowanceUsed}
+          allowanceAvailable={allowanceAvailable}
+          setAllowanceUsed={setAllowanceUsed}
+          setAllowanceAvailable={setAllowanceAvailable}
+          daysBooked={daysBooked}
+          setDaysBooked={setDaysBooked}
+        />
+      </Col>
+      <Col>
+        <Row>
+          <TrackingTable
+            className="main-tracking-table"
             allowance={allowance}
             allowanceUsed={allowanceUsed}
             allowanceAvailable={allowanceAvailable}
-            setAllowanceUsed={setAllowanceUsed}
-            setAllowanceAvailable={setAllowanceAvailable}
-            daysBooked={daysBooked}
-            setDaysBooked={setDaysBooked}
           />
-        </Col>
-        <Col>
-          <Row>
-            <TrackingTable
-              allowance={allowance}
-              allowanceUsed={allowanceUsed}
-              allowanceAvailable={allowanceAvailable}
-            />
-          </Row>
-          <Row>
-            
-
-            <Accordion >
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>View upcoming Public Bank Holidays</Accordion.Header>
-                <Accordion.Body>
+        </Row>
+        <Row>
+          <Accordion className="main-accordion">
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>
+                View upcoming Public Bank Holidays
+              </Accordion.Header>
+              <Accordion.Body>
                 <BankHolidays bankHolidays={bankHolidays} />
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>View your upcoming Booked Holidays</Accordion.Header>
-                <Accordion.Body>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
+              <Accordion.Header>
+                View your upcoming Booked Holidays
+              </Accordion.Header>
+              <Accordion.Body>
                 <BookedHolidays daysBooked={daysBooked} />
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-            
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        </Row>
+      </Col>
+    </Row>
   );
 }
 

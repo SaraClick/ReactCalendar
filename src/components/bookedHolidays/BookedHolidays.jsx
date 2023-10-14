@@ -26,13 +26,13 @@ function BookedHolidays({ daysBooked }) {
         {sortedDaysBooked.length > 0 ? (
           sortedDaysBooked.map((day, idx) => {
             return (
-              <ListGroup.Item key={idx}>
+              <ListGroup.Item className="booked-list" key={idx}>
                 {day.format("D MMMM YYYY")}
               </ListGroup.Item>
             );
           })
         ) : (
-          <ListGroup.Item>
+          <ListGroup.Item className="booked-list">
             No upcoming holidays booked within the next 2 years. Please go ahead
             and book.
           </ListGroup.Item>
