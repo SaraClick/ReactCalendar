@@ -21,7 +21,8 @@ function CalendarPicker({
   const bankHolidayStrings = bankHolidays.map((holiday) =>
     dayjs(holiday.date).toDate().toDateString()
   );
-  console.log("bankHolidayDates: ", bankHolidayStrings);
+
+  daysPicked.sort((a, b) => (dayjs(a).isAfter(dayjs(b)) ? 1 : -1));
 
   function dateClick(e) {
     setDate(e);
@@ -126,7 +127,7 @@ function CalendarPicker({
         <Container className="list-booked-container">
           <div className="list-booked">
             {daysPicked.map((selectedDate, index) => (
-              <div key={index}>{selectedDate}</div>
+              (<div key={index}>{dayjs(selectedDate).format("D MMMM YYYY")}</div>)
             ))}
           </div>
         </Container>
