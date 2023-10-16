@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import ButtonGeneric from "../ButtonGeneric";
 
 function BookingButton({
   daysPicked,
@@ -31,9 +32,9 @@ function BookingButton({
   };
 
   return (
-    <Button className="book-button" onClick={submitBooking}>
+    <ButtonGeneric className="btn-booking" onClick={submitBooking}>
       Book {daysPicked.length ? daysPicked.length : ""} days
-    </Button>
+    </ButtonGeneric>
   );
 }
 

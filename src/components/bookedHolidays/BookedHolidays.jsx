@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import dayjs from "dayjs";
+import ButtonGeneric from "../ButtonGeneric";
 
 function BookedHolidays({ daysBooked, setDaysBooked }) {
-  
-  const [indexToRemove, setIndexToRemove] = useState(-1)
+  const [indexToRemove, setIndexToRemove] = useState(-1);
 
   console.log("daysBooked", daysBooked);
 
@@ -24,12 +24,14 @@ function BookedHolidays({ daysBooked, setDaysBooked }) {
     .sort((a, b) => (a.isAfter(b) ? 1 : -1));
 
   useEffect(() => {
-    console.log("PRIOR daysBooked", daysBooked)
-    console.log("INDEX TO REMOVE", indexToRemove)
-    const newBookings = sortedDaysBooked.map((date) => date.toDate().toDateString()).filter( (date, index) => index !== indexToRemove)
+    console.log("PRIOR daysBooked", daysBooked);
+    console.log("INDEX TO REMOVE", indexToRemove);
+    const newBookings = sortedDaysBooked
+      .map((date) => date.toDate().toDateString())
+      .filter((date, index) => index !== indexToRemove);
     setDaysBooked(newBookings);
-    console.log("UPDATED daysBooked", daysBooked)
-    setIndexToRemove(-1)  // need to reset as the lenght of the array has changed and remaining elements position have changed
+    console.log("UPDATED daysBooked", daysBooked);
+    setIndexToRemove(-1); // need to reset as the lenght of the array has changed and remaining elements position have changed
   }, [indexToRemove]);
 
   return (
@@ -40,9 +42,12 @@ function BookedHolidays({ daysBooked, setDaysBooked }) {
             return (
               <ListGroup.Item className="booked-list" key={idx}>
                 {day.format("D MMMM YYYY")}{" "}
-                <button onClick={(e) => setIndexToRemove(idx)}>
+                <ButtonGeneric
+                  styling="btn-cancel"
+                  onClick={(e) => setIndexToRemove(idx)}
+                >
                   Cancel
-                </button>
+                </ButtonGeneric>
               </ListGroup.Item>
             );
           })

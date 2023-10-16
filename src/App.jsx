@@ -9,6 +9,7 @@ import UpcomingAccordion from "./components/accordionUpcomingView/UpcomingAccord
 import ListPickedDays from "./components/calendar/ListPickedDays";
 import TrackingTable from "./components/trackingTable/TrackingTable";
 import GetBankHolidays from "./components/data/GetBankHolidays";
+import ButtonGeneric from "./components/ButtonGeneric";
 
 function App() {
   const [allowance, setAllowance] = useState(25);

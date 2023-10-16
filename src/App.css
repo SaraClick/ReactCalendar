@@ -52,7 +52,7 @@ footer p {
   text-decoration: none;
   padding-left: 20px;
 }
-.web-title{
+.web-title {
   color: #c89d38;
   font-weight: bold;
   vertical-align: middle;
@@ -61,7 +61,6 @@ footer p {
 .logo {
   height: 2.3rem;
   padding-bottom: 5px;
-
 }
 
 /* TABLE */
@@ -84,35 +83,34 @@ td {
 }
 
 /* Booked Holidays */
-.main-accordion{
+.main-accordion {
   padding-top: 2.5rem;
 }
 
-.booked-list{
+.booked-list {
   --bs-list-group-bg: #b7b7b4;
   --bs-list-group-border-color: #d0d0cd;
   font-size: 0.9rem;
 }
 
-.accordion-bankholiday{
+.accordion-bankholiday {
   --bs-accordion-btn-bg: #685dad;
   --bs-accordion-btn-color: white;
   --bs-accordion-active-bg: #685dad;
   --bs-accordion-active-color: white;
   --bs-accordion-btn-focus-box-shadow: none;
   --bs-accordion-border-color: none;
-  --bs-accordion-bg:#817ba5;
+  --bs-accordion-bg: #817ba5;
 }
-.accordion-bookedholidays{
-  --bs-accordion-btn-bg:  #a1456a;
+.accordion-bookedholidays {
+  --bs-accordion-btn-bg: #a1456a;
   --bs-accordion-btn-color: white;
   --bs-accordion-active-bg: #a1456a;
   --bs-accordion-active-color: white;
   --bs-accordion-btn-focus-box-shadow: none;
   --bs-accordion-border-color: none;
-  --bs-accordion-bg:#a67d8e;
+  --bs-accordion-bg: #a67d8e;
 }
-
 
 /* CARDS (bank holiday) */
 .layout {
@@ -125,7 +123,7 @@ td {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  background-color:inherit;
+  background-color: inherit;
   align-items: center;
   border-radius: 15px;
 }
@@ -141,7 +139,7 @@ td {
 
 div.card {
   border: 1.5px solid;
-  border-color: #d0d0cd;;
+  border-color: #d0d0cd;
   background-color: #b7b7b4;
   border-radius: 15px;
 }
@@ -252,11 +250,11 @@ div.card {
 }
 
 .react-calendar__tile:enabled:hover {
-  background-color:  #b7b7b4;
+  background-color: #b7b7b4;
 }
 
 .react-calendar__tile--now {
-  background:  #c89d38; 
+  background: #c89d38;
 }
 
 .react-calendar__tile--now:enabled:hover,
@@ -282,15 +280,18 @@ div.card {
 }
 
 /* !important needed to overwrite bootstrap styling */
-.btn-primary,
-.btn-primary:active,
-.btn-primary:visited {
-  background-color: #276f7f !important;
-  border-color: #276f7f !important;
+.btn-booking {
+  --bs-btn-bg: #276f7f !important;
+  --bs-btn-border-color: #276f7f !important;
+  --bs-btn-hover-bg: #30889c !important;
+  --bs-btn-hover-border-color: #30889c !important;
 }
 
-.btn-primary:hover {
-  background-color: #30889c !important;
+.btn-cancel {
+  --bs-btn-bg: #7f2727 !important;
+  --bs-btn-border-color: #7f2727 !important;
+  --bs-btn-hover-bg: #a53838 !important;
+  --bs-btn-hover-border-color: #a53838 !important;
 }
 
 .booked-date {
@@ -319,7 +320,7 @@ div.card {
 
 /* CSS styles for screens above 1024px width */
 @media (min-width: 1024px) {
-  .content-wrap  {
+  .content-wrap {
     max-width: 1024px; /* Limit the width of the body to 1024px */
     margin: 0 auto; /* Center-align the content */
   }
