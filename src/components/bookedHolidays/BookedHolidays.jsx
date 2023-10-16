@@ -41,10 +41,12 @@ function BookedHolidays({ daysBooked, setDaysBooked }) {
           sortedDaysBooked.map((day, idx) => {
             return (
               <ListGroup.Item className="booked-list" key={idx}>
-                {day.format("D MMMM YYYY")}{" "}
+                {day.format("D MMMM YYYY")}{" "}<span></span>
                 <ButtonGeneric
                   styling="btn-cancel"
                   onClick={(e) => setIndexToRemove(idx)}
+                  style={{ fontSize: '10px'}}
+        
                 >
                   Cancel
                 </ButtonGeneric>

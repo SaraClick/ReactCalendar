@@ -288,10 +288,11 @@ div.card {
 }
 
 .btn-cancel {
-  --bs-btn-bg: #7f2727 !important;
-  --bs-btn-border-color: #7f2727 !important;
-  --bs-btn-hover-bg: #a53838 !important;
-  --bs-btn-hover-border-color: #a53838 !important;
+  --bs-btn-bg:  #a1456a !important;
+  --bs-btn-border-color:  #a1456a !important;
+  --bs-btn-hover-bg: #b15d7f !important;
+  --bs-btn-hover-border-color: #b15d7f !important;
+  height: 25px;
 }
 
 .booked-date {
