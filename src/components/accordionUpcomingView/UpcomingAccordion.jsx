@@ -3,7 +3,7 @@ import Accordion from "react-bootstrap/Accordion";
 import BookedHolidays from "../bookedHolidays/BookedHolidays";
 import BankHolidays from "../bankHolidays/BankHolidays";
 
-function UpcomingAccordion({ bankHolidays, daysBooked }) {
+function UpcomingAccordion({ bankHolidays, daysBooked, setDaysBooked }) {
   return (
     <Accordion className="main-accordion">
       <Accordion.Item className="accordion-bankholiday" eventKey="0">
@@ -19,7 +19,7 @@ function UpcomingAccordion({ bankHolidays, daysBooked }) {
           <span>View your upcoming Booked Holidays</span>
         </Accordion.Header>
         <Accordion.Body>
-          <BookedHolidays daysBooked={daysBooked} />
+          <BookedHolidays daysBooked={daysBooked} setDaysBooked={setDaysBooked} />
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>

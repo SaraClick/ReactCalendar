@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import dayjs from "dayjs";
 
-function BookedHolidays({ daysBooked }) {
+function BookedHolidays({ daysBooked, setDaysBooked }) {
+  
+  const [indexToRemove, setIndexToRemove] = useState(-1)
+
   console.log("daysBooked", daysBooked);
 
   const today = dayjs(); // today's date
@@ -20,6 +23,15 @@ function BookedHolidays({ daysBooked }) {
     .filter((day) => day.isAfter(today) && day.isBefore(todayPlus2Year))
     .sort((a, b) => (a.isAfter(b) ? 1 : -1));
 
+  useEffect(() => {
+    console.log("PRIOR daysBooked", daysBooked)
+    console.log("INDEX TO REMOVE", indexToRemove)
+    const newBookings = sortedDaysBooked.map((date) => date.toDate().toDateString()).filter( (date, index) => index !== indexToRemove)
+    setDaysBooked(newBookings);
+    console.log("UPDATED daysBooked", daysBooked)
+    setIndexToRemove(-1)  // need to reset as the lenght of the array has changed and remaining elements position have changed
+  }, [indexToRemove]);
+
   return (
     <>
       <ListGroup>
@@ -27,7 +39,10 @@ function BookedHolidays({ daysBooked }) {
           sortedDaysBooked.map((day, idx) => {
             return (
               <ListGroup.Item className="booked-list" key={idx}>
-                {day.format("D MMMM YYYY")}
+                {day.format("D MMMM YYYY")}{" "}
+                <button onClick={(e) => setIndexToRemove(idx)}>
+                  Cancel
+                </button>
               </ListGroup.Item>
             );
           })

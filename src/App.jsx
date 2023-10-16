@@ -66,6 +66,7 @@ function App() {
                 <UpcomingAccordion
                   bankHolidays={bankHolidays}
                   daysBooked={daysBooked}
+                  setDaysBooked={setDaysBooked}
                 />
               </Row>
             </Col>
